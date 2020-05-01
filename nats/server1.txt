@@ -1,0 +1,27 @@
+listen: 127.0.0.1:4222
+debug: true
+cluster {
+  listen: 127.0.0.1:4248
+
+  tls {
+    # Route cert
+    cert_file: "client-a-cert.pem"
+    # Private key
+    key_file:  "client-a-key.pem"
+    # Optional certificate authority verifying connected routes
+    # Required when we have self-signed CA, etc.
+    ca_file:   "ca-bundle.pem"
+  }
+  # Routes are actively solicited and connected to from this server.
+  # Other servers can connect to us if they supply the correct credentials
+  # in their routes definitions from above.
+}
+tls {
+    # Route cert
+    cert_file: "client-a-cert.pem"
+    # Private key
+    key_file:  "client-a-key.pem"
+    # Optional certificate authority verifying connected routes
+    # Required when we have self-signed CA, etc.
+    ca_file:   "ca-bundle.pem"
+  }
